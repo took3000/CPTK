@@ -95,10 +95,6 @@
         </div>
     </div>
 
-    <script>
-        // 自动生成5分钟间隔的时间戳，用于缓存刷新
-        const cacheBuster = Math.floor(Date.now() / (5 * 60 * 1000)); // 每5分钟更新一次
-        document.write('<script src="script.js?v=' + cacheBuster + '"><\/script>');
-    </script>
+    <script src="script.js?v=1.0"></script>
 </body>
 </html>
