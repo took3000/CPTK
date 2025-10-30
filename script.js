@@ -247,6 +247,10 @@ const CONFIG = {
         // 在这里添加你的壁纸图片链接
         // 示例：'https://example.com/wallpaper1.jpg',
         // 示例：'https://example.com/wallpaper2.jpg',
+
+        'https://gd-hbimg.huaban.com/a7850cad12b5cd901f693a27c80e188b9f21712927ed6a-NgOiba_fw1200',
+
+        'https://gd-hbimg.huaban.com/a7850cad12b5cd901f693a27c80e188b9f21712927ed6a-NgOiba_fw1200',
     ]
 };
 
