@@ -4,7 +4,7 @@ const CONFIG = {
     defaultImage: 'https://picx.zhimg.com/80/v2-05e3bd539ad673a26174010877b81a49_720w.webp?source=d16d100b',
     avatarCount: 0, // 头像图片数量（动态计算）
     wallpaperCount: 20, // 壁纸图片数量
-    lazyLoadThreshold: 200, // 懒加载阈值（像素）
+    lazyLoadThreshold: 100, // 懒加载阈值（像素）
     
     // 页面头图配置
     headerImages: {
