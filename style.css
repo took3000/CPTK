@@ -1,0 +1,664 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    padding-bottom: 80px; /* 为底部标签栏留出空间 */
+}
+
+/* 页面头图样式 */
+.page-header-image {
+    width: calc(100% + 30px); /* 突破容器padding限制 */
+    height: auto;
+    margin-left: -15px; /* 向左偏移抵消padding */
+    margin-bottom: -180px; /* 负边距实现200px重叠（20px间距 + 180px重叠 = 200px） */
+    display: none; /* 默认隐藏 */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+    position: relative;
+    z-index: 1; /* 头图在下层 */
+}
+
+.page-header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* 图片列表容器样式调整，确保在上层 */
+.waterfall-container {
+    position: relative;
+    z-index: 2; /* 图片列表在上层 */
+}
+
+.page-header {
+    text-align: center;
+    padding: 20px 0;
+    color: #495057;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.page-header h1 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.main-content {
+    padding: 0 15px;
+}
+
+.page {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.waterfall-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 0 5px;
+    justify-content: center;
+}
+
+.waterfall-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+}
+
+.waterfall-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.waterfall-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.waterfall-item.loading img {
+    opacity: 0.5;
+}
+
+/* 壁纸页的特殊样式 */
+#wallpapers-page .waterfall-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+#wallpapers-page .waterfall-item {
+    width: 100%;
+}
+
+#wallpapers-page .waterfall-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* 头像页的特殊样式 */
+#avatars-page .waterfall-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+#avatars-page .waterfall-item {
+    aspect-ratio: 1 / 1;
+}
+
+#avatars-page .waterfall-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 移动端响应式设计 - 双列显示 */
+@media (max-width: 768px) {
+    /* 壁纸页移动端双列显示 */
+    #wallpapers-page .waterfall-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    #wallpapers-page .waterfall-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    /* 头像页移动端双列显示 */
+    #avatars-page .waterfall-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    #avatars-page .waterfall-item {
+        aspect-ratio: 1 / 1;
+        margin-bottom: 10px;
+    }
+    
+    /* 调整标签栏在移动端的样式 */
+    .tab-bar {
+        height: 70px;
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    .tab-item {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .tab-bar {
+        height: 60px;
+    }
+    
+    .tab-item {
+        font-size: 12px;
+    }
+    
+    .tab-logo {
+        width: auto; /* 宽度自适应 */
+        height: 35px; /* 移动端底部栏高度70px的50% */
+        margin: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .count-badge {
+        font-size: 10px;
+        margin-top: 2px;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    .modal-header {
+        padding: 20px;
+    }
+    
+    .modal-header h2 {
+        font-size: 2em;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-body h3 {
+        font-size: 1.3em;
+    }
+    
+    .modal-body p {
+        font-size: 1em;
+    }
+    
+    /* 调整进度条在移动端的位置和触摸区域 */
+    .progress-bar-container {
+        bottom: 70px; /* 刚好在移动端底部标签栏的顶部 */
+        padding: 0 15px;
+    }
+    
+    .progress-bar {
+        height: 12px; /* 移动端更大的触摸区域 */
+    }
+    
+    .progress-thumb {
+        width: 50px; /* 移动端更大的触摸区域 */
+        height: 50px;
+        left: 0%; /* 移动端当前位置爱心跟随进度 */
+    }
+    
+    .end-thumb {
+        width: 50px;
+        height: 50px;
+        left: 100%; /* 移动端尽头爱心固定在进度条右侧 */
+    }
+    
+    .heart-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .current-position {
+        font-size: 8px;
+    }
+    
+    .total-length {
+        font-size: 8px;
+    }
+    
+    .overlap-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    /* 调整标题在移动端的样式 */
+    .page-header h1 {
+        font-size: 20px;
+        padding: 15px 0;
+    }
+}
+
+/* 底部标签栏 */
+/* 隐藏浏览器默认滚动条 */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 进度条样式 */
+.progress-bar-container {
+    position: fixed;
+    bottom: 60px; /* 刚好在底部标签栏的顶部 */
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    z-index: 1001; /* 比标签栏高一级，确保显示在上方 */
+    pointer-events: none;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px; /* 增加高度，提高触摸区域 */
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation; /* 优化触摸体验 */
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #fda3b8, #f84741);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.progress-thumb {
+    width: 40px; /* 增大容器以适应更大的爱心 */
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 0%; /* 当前位置爱心跟随进度 */
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation; /* 优化触摸体验 */
+    z-index: 2; /* 当前进度爱心在上层 */
+}
+
+.end-thumb {
+    width: 40px; /* 增大容器以适应更大的爱心 */
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 100%; /* 尽头爱心固定在进度条右侧 */
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* 尽头爱心不可点击 */
+}
+
+.heart-icon {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 2px 4px rgba(248, 71, 65, 0.15));
+    transition: transform 0.2s ease;
+}
+
+.progress-thumb:hover .heart-icon {
+    transform: scale(1.1);
+}
+
+/* 当前位置数字样式 */
+.current-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 总长度数字样式 */
+.total-length {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 重叠图片样式 */
+.overlap-image {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    display: none; /* 默认隐藏 */
+    z-index: 3; /* 最高层级 */
+    pointer-events: none;
+}
+
+.overlap-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* 标签栏样式 */
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+.tab-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    transition: color 1s ease;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    padding-top: 5px; /* 为文字标签提供更好的垂直居中 */
+}
+
+.tab-item.active {
+    color: #6c757d;
+    font-weight: 600;
+}
+
+/* 共用底部指示条 */
+.tab-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 33.33%;
+    height: 3px;
+    background: #6c757d;
+    border-radius: 2px;
+    transition: left 1s ease;
+    transform: translateX(0);
+}
+
+/* 头像页激活时的指示条位置 */
+.tab-bar[data-active-page="avatars-page"]::after {
+    left: 0;
+}
+
+/* 壁纸页激活时的指示条位置 */
+.tab-bar[data-active-page="wallpapers-page"]::after {
+    left: 66.67%;
+}
+
+.tab-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.tab-logo {
+    width: auto; /* 宽度自适应 */
+    height: 30px; /* 底部栏高度60px的50% */
+    border-radius: 0; /* 取消圆角裁剪 */
+    overflow: visible; /* 取消溢出隐藏 */
+    margin: 0 20px;
+    box-shadow: none; /* 去掉阴影 */
+    position: relative;
+    z-index: 1002; /* 确保logo在最上层 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-logo:hover {
+    transform: scale(1.05);
+}
+
+.count-badge {
+    display: block;
+    font-size: 12px;
+    color: #ff284b;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+/* 关于页面模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* 灯箱动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes scaleOut {
+    from { transform: scale(1); }
+    to { transform: scale(0.8); }
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #ff284b, #ff6b9d);
+    color: white;
+    padding: 30px;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: scale(1.2);
+}
+
+.modal-body {
+    padding: 40px;
+}
+
+.modal-body h3 {
+    color: #ff284b;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.modal-body p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #666;
+    text-align: justify;
+}
+
+.modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* 加载占位图样式 */
+.loading-placeholder {
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+    .waterfall-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    #avatars-page .waterfall-container {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    #wallpapers-page .waterfall-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .page-header h1 {
+        font-size: 28px;
+    }
+    
+    .tab-bar {
+        height: 70px;
+    }
+    
+    .tab-item {
+        font-size: 16px;
+    }
+    
+    .tab-logo {
+        width: 80px; /* 保持桌面端logo尺寸为80px */
+        height: 80px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .waterfall-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    #avatars-page .waterfall-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    
+    #wallpapers-page .waterfall-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}

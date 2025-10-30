@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情侣头像壁纸分享</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <!-- 头像页面 -->
+        <section id="avatars-page" class="page active">
+            <!-- 头像页面头图容器 -->
+            <div class="page-header-image" id="avatars-header-image">
+                <!-- 头图将通过JS动态设置 -->
+            </div>
+            <!-- 头像页面标题 -->
+            <header class="page-header">
+                <h1>情侣头像分享</h1>
+            </header>
+            <div class="waterfall-container" id="avatars-container">
+                <!-- 头像图片将通过JS动态添加 -->
+            </div>
+        </section>
+
+        <!-- 壁纸页面 -->
+        <section id="wallpapers-page" class="page">
+            <!-- 壁纸页面头图容器 -->
+            <div class="page-header-image" id="wallpapers-header-image">
+                <!-- 头图将通过JS动态设置 -->
+            </div>
+            <!-- 壁纸页面标题 -->
+            <header class="page-header">
+                <h1>情侣壁纸分享</h1>
+            </header>
+            <div class="waterfall-container" id="wallpapers-container">
+                <!-- 壁纸图片将通过JS动态添加 -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 进度条 -->
+    <div class="progress-bar-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+            <!-- 当前位置爱心 -->
+            <div class="progress-thumb current-thumb" id="progress-thumb">
+                <img referrerPolicy="no-referrer"  src="https://gd-hbimg.huaban.com/9705cc3790a8dfde5b88ec04988881f96c5fe9e0858b7-RkhY9O" alt="当前位置爱心" class="heart-icon">
+                <span class="current-position" id="current-position">0</span>
+            </div>
+            <!-- 尽头爱心 -->
+            <div class="end-thumb">
+                 <img referrerPolicy="no-referrer"  src="https://gd-hbimg.huaban.com/9705cc3790a8dfde5b88ec04988881f96c5fe9e0858b7-RkhY9O" alt="当前位置爱心" class="heart-icon">
+                <span class="total-length" id="total-length">0</span>
+            </div>
+            
+            <!-- 重叠时显示的图片 -->
+            <div class="overlap-image" id="overlap-image">
+                <img referrerPolicy="no-referrer"  src="https://gd-hbimg.huaban.com/8643e4bf6bf2f76d49233a0586d887df3523355719904-B7vjxz_fw1200" alt="重叠图片" class="overlap-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部标签栏 -->
+    <nav class="tab-bar">
+        <div class="tab-item" data-page="avatars-page">
+            <span>头像</span>
+            <span class="count-badge" id="avatar-count">0</span>
+        </div>
+        <div class="tab-logo" id="about-logo">
+            <img referrerPolicy="no-referrer" src="https://gd-hbimg.huaban.com/d50139fa5dc4d1e5a91ee6cd0af5512b33cc9420fb98-d1uWtU" alt="Logo" class="logo">
+        </div>
+        <div class="tab-item" data-page="wallpapers-page">
+            <span>壁纸</span>
+            <span class="count-badge" id="wallpaper-count">0</span>
+        </div>
+    </nav>
+
+    <!-- 关于页面模态框 -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>CP图库</h3>
+                <h4>CPTUKU.CN</h4>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4>一个纯净的专为情侣打造的头像壁纸图库</h4>
+                <br>
+                <p>“CP”通常是“couple”的缩写，意为“情侣”或“配对”。这里是专为情侣打造的纯净头像壁纸图库，诞生于对爱情美好瞬间的珍视与记录。我们深知，一对契合的头像、一张温馨的壁纸，是情侣间无声的甜蜜宣告，也是日常相处中浪漫的小确幸。因此，我们摒弃繁杂广告与冗余内容，专注于为每对恋人提供高质量、高适配的专属视觉素材。</p>
+                <p>网站所有头像壁纸均经过精心筛选与创作，涵盖清新治愈、简约ins、古风国潮、动漫卡通等多元风格，无论是微信、QQ的头像搭配，还是手机、电脑的壁纸装饰，都能满足不同情侣的审美偏好。我们坚持定期更新，紧跟潮流趋势的同时，保留经典耐看的设计，让每一次浏览都能发现心动之选。</p>
+                <p>我们愿做爱情的"视觉记录者"，用每一张素材传递情侣间的温柔与默契，陪伴你们在平凡日子里，藏下更多属于彼此的浪漫印记。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 自动生成5分钟间隔的时间戳，用于缓存刷新
+        const cacheBuster = Math.floor(Date.now() / (5 * 60 * 1000)); // 每5分钟更新一次
+        document.write('<script src="script.js?v=' + cacheBuster + '"><\/script>');
+    </script>
+</body>
+</html>
