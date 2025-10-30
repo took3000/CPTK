@@ -4,12 +4,12 @@ const CONFIG = {
     defaultImage: 'https://picx.zhimg.com/80/v2-05e3bd539ad673a26174010877b81a49_720w.webp?source=d16d100b',
     avatarCount: 0, // 头像图片数量（动态计算）
     wallpaperCount: 20, // 壁纸图片数量
-    lazyLoadThreshold: 100, // 懒加载阈值（像素）
+    lazyLoadThreshold: 200, // 懒加载阈值（像素）
     
     // 页面头图配置
     headerImages: {
-        avatars: 'https://gd-hbimg.huaban.com/0e538c9b4d6c07c3cefcc378e8c8e9272525871c7e6f1-tp28f8_fw1200', // 头像页面头图链接
-        wallpapers: 'https://gd-hbimg.huaban.com/0e538c9b4d6c07c3cefcc378e8c8e9272525871c7e6f1-tp28f8_fw1200' // 壁纸页面头图链接
+        avatars: 'https://gd-hbimg.huaban.com/09de799336e123ec7511e6bd3859fe8ec77e85c994443-YbWRTS', // 头像页面头图链接
+        wallpapers: 'https://gd-hbimg.huaban.com/09de799336e123ec7511e6bd3859fe8ec77e85c994443-YbWRTS' // 壁纸页面头图链接
     },
     
     // 自定义头像图片链接数组（替换这里的链接）
