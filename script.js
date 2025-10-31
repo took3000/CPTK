@@ -1,241 +1,24 @@
 // 配置
 const CONFIG = {
-    placeholderImage: 'https://pica.zhimg.com/80/v2-a80d940dc530e773c7db1da34f83b779_720w.webp?source=d16d100b',
-    defaultImage: 'https://picx.zhimg.com/80/v2-05e3bd539ad673a26174010877b81a49_720w.webp?source=d16d100b',
-    avatarCount: 0, // 头像图片数量（动态计算）
-    wallpaperCount: 20, // 壁纸图片数量
-    lazyLoadThreshold: 100, // 懒加载阈值（像素）
+    placeholderImage: 'https://gd-hbimg.huaban.com/0856b38d6bc20ff747f27b6a96ec0630350047c4a2713-8ZGGar_fw658',
+    defaultImage: 'https://gd-hbimg.huaban.com/0856b38d6bc20ff747f27b6a96ec0630350047c4a2713-8ZGGar_fw658',
+    avatarCount: 50, // 头像图片初始加载数量（增加到50张）
+    wallpaperCount: 30, // 壁纸图片初始加载数量（增加到30张）
+    lazyLoadThreshold: 300, // 懒加载阈值（增加到300像素，提前加载）
+    loadMoreThreshold: 500, // 加载更多阈值（距离底部500px时触发）
+    loadMoreCount: 20, // 每次加载更多的图片数量
     
     // 页面头图配置
     headerImages: {
-        avatars: 'https://gd-hbimg.huaban.com/09de799336e123ec7511e6bd3859fe8ec77e85c994443-YbWRTS', // 头像页面头图链接
-        wallpapers: 'https://gd-hbimg.huaban.com/09de799336e123ec7511e6bd3859fe8ec77e85c994443-YbWRTS' // 壁纸页面头图链接
+        avatars: 'https://pic2.zhimg.com/80/v2-c84f21e8d2644c519888963dea0713ad.webp', // 头像页面头图链接
+        wallpapers: 'https://pic2.zhimg.com/80/v2-c84f21e8d2644c519888963dea0713ad.webp' // 壁纸页面头图链接
     },
     
     // 自定义头像图片链接数组（替换这里的链接）
     customAvatars: [
         // 在这里添加你的头像图片链接
         // 示例：'https://example.com/avatar1.jpg',
-        'https://picx.zhimg.com/v2-da775ea6033973cbc4ae887baea29f41_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-7c65a5287c8a2a5942501ea8d7474937_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-84737694e781920c8390e20f99a06821_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-30dbaf1155b2ae73c6c63ecd8441e24d_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-c1a7441b4308d739b2fd2fd14c780409_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-83955c7a49a2b6fe780c1184fca117b3_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-d42dcaf84188791d30303d27ee41c672_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-67ee4beb2e290703b4e1f169b1b9b202_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-ce2a0e851dfcb18bd3683e732c086f4d_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-71bb92498d1266bce781df5bc982d731_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-ee5059cf40035b98f68119291c41e2f3_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-e4ee23c3173ac91c11c96018d90fa8f0_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-dc97f1a7723dc6f9e6c476fa447886bd_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-30fadbdb32758fc86863bccd205a9a93_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-aa91cb35b1b7a2ccddb6fdf12dcc4bec_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-49a181fde3e5dc08fb2ab5de26a7bc0b_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-7196bcbc81b12a90ea7be2fe8c646ec6_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-ff49e93be3ed507177f111f0b0650b90_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-8465bce99da17957a9c252b8a13f34d0_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-95ae68c9c1c4d9d8081655449669dcd9_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-bdf36e60f4a9c302bc638d18e3efbb32_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-28f7096643151ce77ea6ebcc09317a4e_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-4a065e55257cc4c51ebc498efcfcee58_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-62c44d6fdfa10632687b762c159d65ed_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-618eabc84d27c84d33f9c61beb9dff0c_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-36e1413bac6928640b270aaf455c49ae_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-e09628cdf4113dd822003d209c56a7ae_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-8deb1d56f8d5eaa1ab429bfc2c217557_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-bdfb5088fa0d5b8c686a558e7c8d0133_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-73c85de33a6456b48900e4f5141d820c_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-acdc33fffa26e5ad51b87336ebdceb0f_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-d41256e84dad7760af30a97d370ec2e1_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-039fd356b2f9dc4b4594d87d5c021646_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-12cec347407141e8a60c230f1cdd1a70_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-83c9ab450b192f6a7b7be96708cbcce1_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-e44ce78f40e89c3bc28180ee514a6d00_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-8ab364f336b3391bbed6f8f1e075b38a_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-c624dce2d3cc4054bb3d6285684b1cfa_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-03e081d38fd15a2fc2142b80ad6ab8d7_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-e27b22d6af417f3738c442edd0bd96e7_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-e1d387f7216baf128575f39290d00eca_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-4da722a7369b15f4666b15108dd93905_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-fb0a3b47971d89dfd2e2e840aff306f1_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-c0d36c37fe20084ee0f7d9d82027d58c_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-4473cd9058d4417ceccb718bfad7ddc7_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-04bf1689e0f291241caae8036677af87_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-473620a9402b0bd2241148ecf77ebc1e_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-97357a8724dc47d1b9897b595ca1c49f_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-9a26eae502897c990c25dda40939c32a_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-e80a5e6b1c65679b2dc866105d1ed568_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-a635286249757905a847c262f05ccc76_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-5fc5c7a660e912fba83f375d8c8ebc92_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-41810ff72074544276fa495205382f11_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-3ee54e17bc3582596606e163e32ada83_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-1ccbb4bc94e555cc28d904c01cdeb25d_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-a8429768b06619bad3503838b0d4d61e_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-acda81066c9369c904ea3354a8d2d2ea_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-295075030cfd3ee53f07be0e976ff28e_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-23d91f7d72ad415bc85311ef6ebdd3fd_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-88bc2959f4317a4ac0d3f0fa8c10d68f_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-7614f9697c1619a1bc44caba26788ee0_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-6f3f246b74a713460e3e1bea4824508c_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-32e7f1af428f58feb889c70c64272720_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-44f6f25f9debbfd9fc3c3c815190997d_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-b57559f1dee94ebec5ae0e71c500662d_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-7c34c511e6085b39fa94b5a779136faa_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-2b128ef092d576d130b99cd1c9a56d7f_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-f0c3069c61b8496cbb4e01a5fb32439f_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-ad871c87bca78aa14177bba2ab63f775_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-5425c266872a7350758a196867c95f28_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-91048d76e1eff51ec82139dfeebece2f_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-e0ac23083d1d7617d82d79bc14cc5ebc_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-2831ed4cbb92287a4a26be9b529dffc7_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-deaf82d50d01b6aed1b019aca7e8f5cf_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-f8577f3cdd08851c0955d09590153ee6_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-fb7cffd3c4ce205e0eb58ad33e840056_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-3326b225b8f8a7ca6ceab37da0326cb5_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-fe17d6e04bdaa2cea870916f2dcebe4b_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-219faa77bc0992ed312dea2bdeef6169_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-a483786171cf4785f12493299cf23a5c_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-2acb281c6b87c859b7aa30f53d983e87_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-297ef08470b9dbac7d9528abbc7635fc_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-181e83bfa9b405599ee7c82d13a27270_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-c82bec05a19e788fe1523fbe2c6fc14a_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-b31e0e507974c483a78f13be2c8a37bf_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-2d4ebf4a6d79666c7f8f5c6528c96743_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-0f623f94d4f2f6639f95cad1f48d5888_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-fe0c6be693b93270d8ddd1afaeb62208_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-442758eae1f5b9d0bb46680c3e728f86_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-57a91dd48efc695917874896c0480eab_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-422f0d10fcafe7913e5bb11eeb05deb8_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-fcedc5d34d90ec53ad6d15a533eac70f_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-9257de778681c05f5db308b87ec3e326_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-6b2fe35d77cd98d884ebfec5ae27ea91_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-efd7a65aba30ade91a69ed67a5b79219_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-5596b4b29d137835ab8cd18793e049bf_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-8d73bbb9a5cffdf6add057adfd9b3170_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-3bb81a8f9d0db4850294eeaafe86bfdc_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-3da05f8f2feb947fbd8d3cbb7841bbac_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-8711b409ba5ac0fcedd1e6d2acec29bc_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-00d6352b7aa16bea6c9c84a5ced9ab34_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-9e476847727b337f6d844e79d90dbeea_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-96a73d38bdc3e230b6093f876f2a6147_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-54a27870b40a0407b2e4b2583a90d7aa_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-362a73777217871b67ae379f77c27a2b_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-0d069ff022c186138d0b0fcb083adaee_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-35053da5ea3262195f59911e9fe3bc63_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-c5cb02b8dfdea67f0924d7782ba2d1db_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-83a11b54322aef81015554ca0d36f1e6_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-6d542c2e75b879850312032bcd4ec95d_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-b8469cb9e692d2b6333c73648bd91a6e_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-45e71a1ea781f2b5f58fa1720e741123_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-e2bcf11428249390ebf66cc174e56f3d_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-348dcb15b1f820850615eddae64bf11b_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-7ef0907f4f08026bcbb63c3399ce36b1_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-fd4d439585c7837cfc73c5178ca95a1b_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-759dda9ed9d4cea9711d318cbfacc664_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-628b1ee1e9b0bb1bda34ca5c71158d6a_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-7e3f7a4e88b9507ea6494d00bee6ce52_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-870cea0211f7e3c14f24ca7cfbf2b2e0_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-71329d1bca6a40b3d9b9c7761faa214a_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-f10bc14f9d212f412b2bc490d8aca8d9_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-514c876b315a806edb9f72957da9b09d_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-6a0004bb71c2caa5c8cf30bfcacf8bf0_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-2702198a3c08550c312af1c68ed5bd2d_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-a21bd25f459c0801da34a32c7d0b061e_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-38715d4ba812025c495c06c68ffe5443_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-3e6929389e2132042e18e3e52aec1653_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-138c9cd1ad92d41ab6dc777d3da68ed6_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-e8016c03cd0e6bd3d8b8d33f823f5b39_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-95422b6c47bbf041a98340f38556c5a2_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-3cb8c469a392ad2478fd8d97e0d9518c_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-7991db8697b0b2fe8250fad68a2870e6_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-1e633dc34fa43140950ac0b93d6e18d9_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-9459d010e84c8441f82974170415767d_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-6c00c05852ab6dd3781e974920299b0a_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-107d43681ca241dc3f0adca62bf144cf_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-4b3beec6f0ead9eb0cf91a9ee0b98db1_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-b211979cbc80af4a4654efc0e07719a3_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-f8545e320cfa9bc3511e8674a1fddc60_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-7f4c177dcff0d618e9409c719343db33_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-6a938c1c1f592a4161d008afb7b264f2_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-238b24eef92754f1bb0d92af7799ce8a_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-342e7f2ae54e993edfc0553da8d6201c_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-647d4d31818c4c06da3c633b84d48f0f_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-0f2513034e4ca468a42a60215a84f964_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-c9d4a769eafba300d327607e476617dc_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-489ed4d084416508b4dfd6e9982c6a15_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-38fe20491605df257d38b8b3101f0a0c_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-7f79f8b8b1cf7d70458a32a69eec3235_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-69d0d90c369b49373d37d6f4872fbab9_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-2d88e40496dfb6bf6e6c54d339109627_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-0b208d0f8981da193bae3910bb4a3f67_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-ef0762fd3c1bf6946e48a73c91d91e69_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-2578d30d1983ccd321ffb74c98769e2c_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-e4e96db10ba9edb92b14e16a9411427e_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-4d9c1fedcd0520d8e9f3940b9898e4a3_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-43bf0575d096a4eaaf5e40b408debde4_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-0c913b92b73d76dc65354e00f641ff31_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-78a5321a22a7687e53e28a4da4f96d60_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-78e4982ac6d33983a4a717432812f1df_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-7a2fba713f0a46cfebfb0f2f99effb7c_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-12f5961b7e1e4c5404331deef508f883_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-cf9dad01b766b2aaad3a140deffc5697_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-5f079090d63d76bb537a3590b318b496_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-653e3358cee95f616cfa9bceff0135c9_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-0efe08139608c8ece067a326af0fa121_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-d07317a8021d640bad7397ccbbe186b3_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-cc2bb35faaeb2ded76c920432d0001fc_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-04255bd8e41cb850bd9f32912229f3b0_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-007a17adc9c7e780c7e961f3d9858ee1_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-ed5d7d0428156f2f50a9c53998c3cc7a_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-7f0e714579b6d4431c8cb8a9c96256b7_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-50cf2a9541c0420ec242038bc713587a_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-1c8374b7a1289475c197ad9c1957fc48_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-9f1be81cbee8a52091f22997967cc51e_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-ee712b773d9c1f9bc362fffeb483535f_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-ff2204ece24903b3335caeaa390e6081_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-c76a3f757582b0924795c81ddb8a7eb1_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-2404cd7d9d96ace83bd6ff98a7471b3f_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-c604534b49dce4431a05b041e213a7b0_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-b2b826b2200586a42d2150d6544ece76_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-b782ef6de274e153d289894e0d6fdd1a_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-6c0bf4ba9871dac7572c73f982a0369c_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-bf775d623a3add98cd123d41d479ed62_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-21671e680b1ef9f133c1afa7da0370f9_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-ec0c918b57a8245cb83b416bc511d600_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-2d107642a7dc50b174a2ce838d5a3a9d_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-66915c843956b2d41102da82199e9451_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-5961b6a25280ea408430d0125f6be5c0_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-06e9bf9d4a7462e4cb702f69b73098df_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-fa54d644691f8cfa45c62e7036942742_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-77e22d2e5c22dc2db7f9e085269b4ee0_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-064d391aad7beea128fdda3de4a02515_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-894cb2fba439963c3420de3cb946a7da_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-347ca570ff8f69245f9c18618b2f28de_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-14c6137927d5d88978c42c3e1e8978bc_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-58cc0b26af9bb9bfd06fb85f291ea8da_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-0a71a4371381464e8e832c2a7b281bb0_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-98dd6979836e25851de9e208088be4f4_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-1fc3e738743d6c8f5803d341ef0408f9_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-7c7ca56cb6583d2a724737c8f6d079f0_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-9d0335ea3cef20ef090b2cfa9dc4b4e3_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-93f67ab85c127ebc9b8f45c4cbc58d42_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-7b7ab5f66082fc77c617a8c0b2ba8787_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-59fc93b2759f315e07e2dd16751422c4_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-255a5654af627d18b5f75a31adbd7f35_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-d6d2c796e9dd01e9b3f6ddf1f91e4316_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-977e05fd309a5c479976534981b484a4_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-05e0c0cc4fa7fd8ebb77d60943474af4_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-1771c672078e62b5c07d3eb4fa180c29_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-23f31391c24661a5db16e154807b055f_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-f929131838eefdc2207e23474b868537_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-2464ce8f5601d257f2839a663dc8b423_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-884d18edc988c5c9809736fdba562ca2_r.jpg?source=1def8aca',
-'https://pic1.zhimg.com/v2-ce9f8678597c988bc94425a3bd3fb55f_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-c4780a093c294acd5b1e4db43c46aca7_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-e47cb533fb713e096d1a8d804010e92a_r.jpg?source=1def8aca',
-'https://pica.zhimg.com/v2-c6e6fcd902b202fb8d339349a5211e35_r.jpg?source=1def8aca',
-'https://picx.zhimg.com/v2-dd9ffbc4e519691973c736d2a81c0b4c_r.jpg?source=1def8aca',
+      
 'https://picx.zhimg.com/v2-5771cb86e9ce0541393a388ff8e4772c_r.jpg?source=1def8aca',
 'https://picx.zhimg.com/v2-41eb9c06b678fcfab3be343b9ed98cfc_r.jpg?source=1def8aca',
 'https://pic1.zhimg.com/v2-f5b4be77b025c0438c2a5489d77fc807_r.jpg?source=1def8aca',
@@ -248,9 +31,9 @@ const CONFIG = {
         // 示例：'https://example.com/wallpaper1.jpg',
         // 示例：'https://example.com/wallpaper2.jpg',
 
-        'https://gd-hbimg.huaban.com/a7850cad12b5cd901f693a27c80e188b9f21712927ed6a-NgOiba_fw1200',
-
-        'https://gd-hbimg.huaban.com/a7850cad12b5cd901f693a27c80e188b9f21712927ed6a-NgOiba_fw1200',
+       'https://gd-hbimg.huaban.com/908f57dfe5a5df12da74e6fa1cfac7c9c3e88bc6387a47-JFw9Sc_fw1200',
+        'https://gd-hbimg.huaban.com/e37b98b88dc05b4c6cb35a318402af0f05801846112991-zCeTc2',
+        'https://gd-hbimg.huaban.com/5c586a7f7116f4e0236529faeb4a752a696d66b7419af-SJG9g7_fw1200',
     ]
 };
 
@@ -258,6 +41,10 @@ const CONFIG = {
 let currentPage = 'avatars-page';
 let avatarImagesLoaded = false;
 let wallpaperImagesLoaded = false;
+
+// 从文本文件加载的图片链接数组
+let loadedAvatarImages = [];
+let loadedWallpaperImages = [];
 
 // DOM 元素
 const tabItems = document.querySelectorAll('.tab-item');
@@ -420,7 +207,13 @@ function initHeaderDisplay() {
     const title = currentPage.querySelector('.page-header');
     
     if (headerImageUrl && headerImageUrl.trim() !== '') {
-        // 如果有配置头图，显示头图，隐藏标题
+        // 如果有配置头图，先显示标题，然后加载头图
+        if (title) {
+            title.style.display = 'block';
+            title.style.opacity = '1';
+            title.style.transform = 'translateY(0)';
+        }
+        
         if (headerImage) {
             // 设置头图
             if (!headerImage.querySelector('img')) {
@@ -428,14 +221,42 @@ function initHeaderDisplay() {
                 img.src = headerImageUrl;
                 img.alt = pageId === 'avatars-page' ? '情侣头像分享头图' : '情侣壁纸分享头图';
                 img.referrerPolicy = 'no-referrer';
+                
+                // 头图加载完成后隐藏标题
+                img.onload = function() {
+                    headerImage.style.display = 'block';
+                    headerImage.style.opacity = '1';
+                    headerImage.style.transform = 'translateY(0)';
+                    
+                    // 延迟隐藏标题，让用户看到头图加载完成
+                    setTimeout(() => {
+                        if (title) {
+                            title.style.display = 'none';
+                        }
+                    }, 300);
+                };
+                
+                // 头图加载失败时保持标题显示
+                img.onerror = function() {
+                    console.warn('头图加载失败，保持标题显示');
+                    if (headerImage) {
+                        headerImage.style.display = 'none';
+                    }
+                    if (title) {
+                        title.style.display = 'block';
+                    }
+                };
+                
                 headerImage.appendChild(img);
+            } else {
+                // 如果头图已经存在，直接显示
+                headerImage.style.display = 'block';
+                headerImage.style.opacity = '1';
+                headerImage.style.transform = 'translateY(0)';
+                if (title) {
+                    title.style.display = 'none';
+                }
             }
-            headerImage.style.display = 'block';
-            headerImage.style.opacity = '1';
-            headerImage.style.transform = 'translateY(0)';
-        }
-        if (title) {
-            title.style.display = 'none';
         }
     } else {
         // 如果没有配置头图，显示标题，隐藏头图
@@ -524,22 +345,56 @@ function switchPage(pageId) {
             const headerImageUrl = pageId === 'avatars-page' ? CONFIG.headerImages.avatars : CONFIG.headerImages.wallpapers;
             
             if (headerImageUrl && headerImageUrl.trim() !== '') {
-                // 如果有配置头图，显示头图，隐藏标题
+                // 如果有配置头图，先显示标题，然后加载头图
+                if (targetTitle) {
+                    targetTitle.style.display = 'block';
+                    targetTitle.style.opacity = '1';
+                    targetTitle.style.transform = 'translateY(0)';
+                }
+                
                 if (targetHeaderImage) {
                     // 设置头图
                     if (!targetHeaderImage.querySelector('img')) {
-                    const img = document.createElement('img');
-                    img.src = headerImageUrl;
-                    img.alt = pageId === 'avatars-page' ? '情侣头像分享头图' : '情侣壁纸分享头图';
-                    img.referrerPolicy = 'no-referrer';
-                    targetHeaderImage.appendChild(img);
-                }
-                    targetHeaderImage.style.display = 'block';
-                    targetHeaderImage.style.opacity = '1';
-                    targetHeaderImage.style.transform = 'translateY(0)';
-                }
-                if (targetTitle) {
-                    targetTitle.style.display = 'none';
+                        const img = document.createElement('img');
+                        img.src = headerImageUrl;
+                        img.alt = pageId === 'avatars-page' ? '情侣头像分享头图' : '情侣壁纸分享头图';
+                        img.referrerPolicy = 'no-referrer';
+                        
+                        // 头图加载完成后隐藏标题
+                        img.onload = function() {
+                            targetHeaderImage.style.display = 'block';
+                            targetHeaderImage.style.opacity = '1';
+                            targetHeaderImage.style.transform = 'translateY(0)';
+                            
+                            // 延迟隐藏标题，让用户看到头图加载完成
+                            setTimeout(() => {
+                                if (targetTitle) {
+                                    targetTitle.style.display = 'none';
+                                }
+                            }, 300);
+                        };
+                        
+                        // 头图加载失败时保持标题显示
+                        img.onerror = function() {
+                            console.warn('头图加载失败，保持标题显示');
+                            if (targetHeaderImage) {
+                                targetHeaderImage.style.display = 'none';
+                            }
+                            if (targetTitle) {
+                                targetTitle.style.display = 'block';
+                            }
+                        };
+                        
+                        targetHeaderImage.appendChild(img);
+                    } else {
+                        // 如果头图已经存在，直接显示
+                        targetHeaderImage.style.display = 'block';
+                        targetHeaderImage.style.opacity = '1';
+                        targetHeaderImage.style.transform = 'translateY(0)';
+                        if (targetTitle) {
+                            targetTitle.style.display = 'none';
+                        }
+                    }
                 }
             } else {
                 // 如果没有配置头图，显示标题，隐藏头图
@@ -621,7 +476,9 @@ function initLazyLoad() {
 
 // 加载初始图片
 function loadInitialImages() {
+    // 同时加载头像和壁纸图片，确保图片数量统计准确
     loadAvatarImages();
+    loadWallpaperImages();
 }
 
 // 初始化关于页面模态框
@@ -657,8 +514,11 @@ function initAboutModal() {
 
 // 更新图片数量统计
 function updateImageCounts() {
-    const avatarImages = CONFIG.customAvatars.length > 0 ? CONFIG.customAvatars : [CONFIG.defaultImage];
-    const wallpaperImages = CONFIG.customWallpapers.length > 0 ? CONFIG.customWallpapers : [CONFIG.defaultImage];
+    // 优先使用从文本文件加载的图片数组，如果为空则使用配置数组
+    const avatarImages = loadedAvatarImages && loadedAvatarImages.length > 0 ? loadedAvatarImages : 
+                        (CONFIG.customAvatars.length > 0 ? CONFIG.customAvatars : [CONFIG.defaultImage]);
+    const wallpaperImages = loadedWallpaperImages && loadedWallpaperImages.length > 0 ? loadedWallpaperImages : 
+                           (CONFIG.customWallpapers.length > 0 ? CONFIG.customWallpapers : [CONFIG.defaultImage]);
     
     // 动态计算实际显示的图片数量
     const avatarCount = avatarImages.length;
@@ -678,11 +538,13 @@ function updatePageLength() {
     const scrollHeight = currentContainer.scrollHeight;
     const scrollTop = window.scrollY;
     
-    // 更新当前位置（从页面开始的距离）
-    currentPositionElement.textContent = Math.round(scrollTop);
+    // 更新当前位置（从页面开始的距离）- 去掉最后一位数，个位数时显示0
+    const currentPosition = Math.round(scrollTop);
+    currentPositionElement.textContent = currentPosition >= 10 ? Math.floor(currentPosition / 10) : 0;
     
-    // 更新总长度
-    totalLengthElement.textContent = Math.round(scrollHeight);
+    // 更新总长度 - 去掉最后一位数，个位数时显示0
+    const totalLength = Math.round(scrollHeight);
+    totalLengthElement.textContent = totalLength >= 10 ? Math.floor(totalLength / 10) : 0;
     
     // 检测爱心是否重叠
     checkHeartsOverlap();
@@ -709,46 +571,102 @@ function checkHeartsOverlap() {
     }
 }
 
+// 从文本文件加载图片链接
+function loadImageLinksFromFile(filename, callback) {
+    console.log(`开始加载文件: ${filename}`);
+    
+    fetch(filename)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`无法加载文件: ${filename}, 状态码: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(text => {
+            console.log(`文件 ${filename} 加载成功，内容长度: ${text.length}`);
+            
+            // 按行分割，过滤空行和注释行
+            const lines = text.split('\n')
+                .map(line => line.trim())
+                .filter(line => line && !line.startsWith('//') && !line.startsWith('#'));
+            
+            console.log(`文件 ${filename} 解析出行数: ${lines.length}`);
+            
+            // 过滤有效的图片URL
+            const imageUrls = lines.filter(line => {
+                return line.startsWith('http://') || line.startsWith('https://');
+            });
+            
+            console.log(`文件 ${filename} 有效图片URL数量: ${imageUrls.length}`);
+            console.log('前5个图片URL:', imageUrls.slice(0, 5));
+            
+            callback(imageUrls);
+        })
+        .catch(error => {
+            console.error(`加载文件 ${filename} 失败:`, error);
+            // 如果文件加载失败，使用默认配置
+            const defaultImages = filename.includes('avatars') ? CONFIG.customAvatars : CONFIG.customWallpapers;
+            console.log(`使用默认配置，图片数量: ${defaultImages.length}`);
+            callback(defaultImages);
+        });
+}
+
 // 加载头像图片
 function loadAvatarImages() {
     if (avatarImagesLoaded) return;
     
-    // 优先使用自定义头像图片
-    const avatarImages = CONFIG.customAvatars.length > 0 ? CONFIG.customAvatars : [CONFIG.defaultImage];
-    
-    // 动态计算要加载的图片数量：使用自定义图片数组的长度，但不超过实际图片数量
-    const imageCount = Math.min(CONFIG.avatarCount, avatarImages.length);
-    
-    for (let i = 0; i < imageCount; i++) {
-        const imageUrl = avatarImages[i]; // 直接使用数组索引，不重复加载
-        const imgItem = createImageItem(imageUrl, true);
-        avatarsContainer.appendChild(imgItem);
-    }
-    
-    avatarImagesLoaded = true;
-    initLazyLoad();
-    updateImageCounts(); // 更新统计
+    // 从avatars.txt文件加载图片链接
+    loadImageLinksFromFile('avatars.txt', function(avatarImages) {
+        // 如果没有从文件加载到图片，使用配置中的自定义头像图片
+        if (avatarImages.length === 0) {
+            avatarImages = CONFIG.customAvatars.length > 0 ? CONFIG.customAvatars : [CONFIG.defaultImage];
+        }
+        
+        // 保存加载的图片链接到全局变量
+        loadedAvatarImages = avatarImages;
+        
+        // 动态计算要加载的图片数量：使用图片数组的长度，但不超过实际图片数量
+        const imageCount = Math.min(CONFIG.avatarCount, avatarImages.length);
+        
+        for (let i = 0; i < imageCount; i++) {
+            const imageUrl = avatarImages[i]; // 直接使用数组索引，不重复加载
+            const imgItem = createImageItem(imageUrl, true);
+            avatarsContainer.appendChild(imgItem);
+        }
+        
+        avatarImagesLoaded = true;
+        initLazyLoad();
+        updateImageCounts(); // 更新统计
+    });
 }
 
 // 加载壁纸图片
 function loadWallpaperImages() {
     if (wallpaperImagesLoaded) return;
     
-    // 优先使用自定义壁纸图片
-    const wallpaperImages = CONFIG.customWallpapers.length > 0 ? CONFIG.customWallpapers : [CONFIG.defaultImage];
-    
-    // 动态计算要加载的图片数量：使用自定义图片数组的长度，但不超过实际图片数量
-    const imageCount = Math.min(CONFIG.wallpaperCount, wallpaperImages.length);
-    
-    for (let i = 0; i < imageCount; i++) {
-        const imageUrl = wallpaperImages[i]; // 直接使用数组索引，不重复加载
-        const imgItem = createImageItem(imageUrl, false);
-        wallpapersContainer.appendChild(imgItem);
-    }
-    
-    wallpaperImagesLoaded = true;
-    initLazyLoad();
-    updateImageCounts(); // 更新统计
+    // 从wallpapers.txt文件加载图片链接
+    loadImageLinksFromFile('wallpapers.txt', function(wallpaperImages) {
+        // 如果没有从文件加载到图片，使用配置中的自定义壁纸图片
+        if (wallpaperImages.length === 0) {
+            wallpaperImages = CONFIG.customWallpapers.length > 0 ? CONFIG.customWallpapers : [CONFIG.defaultImage];
+        }
+        
+        // 保存加载的图片链接到全局变量
+        loadedWallpaperImages = wallpaperImages;
+        
+        // 动态计算要加载的图片数量：使用图片数组的长度，但不超过实际图片数量
+        const imageCount = Math.min(CONFIG.wallpaperCount, wallpaperImages.length);
+        
+        for (let i = 0; i < imageCount; i++) {
+            const imageUrl = wallpaperImages[i]; // 直接使用数组索引，不重复加载
+            const imgItem = createImageItem(imageUrl, false);
+            wallpapersContainer.appendChild(imgItem);
+        }
+        
+        wallpaperImagesLoaded = true;
+        initLazyLoad();
+        updateImageCounts(); // 更新统计
+    });
 }
 
 // 创建图片项
@@ -760,6 +678,7 @@ function createImageItem(imageUrl, isAvatar) {
     img.setAttribute('data-src', imageUrl);
     img.src = CONFIG.placeholderImage;
     img.alt = isAvatar ? '情侣头像' : '情侣壁纸';
+    img.referrerPolicy = 'no-referrer';
     img.classList.add('loading');
     
     // 添加加载错误处理
@@ -779,9 +698,17 @@ function createImageItem(imageUrl, isAvatar) {
         }
     });
     
-    // 添加加载完成处理
+    // 添加加载完成处理 - 获取图片分辨率
     img.addEventListener('load', function() {
         this.classList.remove('loading');
+        
+        // 如果是壁纸图片，获取并显示分辨率
+        if (!isAvatar) {
+            const resolutionText = this.parentNode.querySelector('.pure-text');
+            if (resolutionText) {
+                resolutionText.textContent = `${this.naturalWidth} × ${this.naturalHeight}`;
+            }
+        }
     });
     
     // 添加鼠标左键点击放大图片功能
@@ -798,57 +725,114 @@ function createImageItem(imageUrl, isAvatar) {
         }
     });
     
+    // 创建右上角文字容器
+    const textOverlay = document.createElement('div');
+    textOverlay.className = 'image-overlay-text';
+    
+    // 创建背景层（使用叠加模式）
+    const labelBackground = document.createElement('div');
+    labelBackground.className = 'label-background';
+    
+    // 创建纯白文字（不使用叠加模式）
+    const pureText = document.createElement('div');
+    pureText.className = 'pure-text';
+    
+    // 根据页面类型设置不同的文字内容
+    if (isAvatar) {
+        pureText.textContent = 'CPTUKU';
+        textOverlay.classList.add('avatar-text');
+    } else {
+        pureText.textContent = '加载中...';
+        textOverlay.classList.add('resolution-text');
+    }
+    
+    // 将背景层和文字层添加到容器中
+    textOverlay.appendChild(labelBackground);
+    textOverlay.appendChild(pureText);
+    
     item.appendChild(img);
+    item.appendChild(textOverlay);
     return item;
 }
 
-// 滚动加载更多（可选功能）
+// 滚动加载更多（优化版）
 let isLoadingMore = false;
+let scrollTimeout = null;
 
 window.addEventListener('scroll', function() {
     if (isLoadingMore) return;
     
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight || window.innerHeight;
-    
-    // 距离底部200px时加载更多
-    if (scrollTop + clientHeight >= scrollHeight - 200) {
-        loadMoreImages();
+    // 防抖处理，避免频繁触发
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
     }
+    
+    scrollTimeout = setTimeout(() => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+        
+        // 距离底部500px时加载更多（使用配置的阈值）
+        if (scrollTop + clientHeight >= scrollHeight - CONFIG.loadMoreThreshold) {
+            loadMoreImages();
+        }
+    }, 100); // 100ms防抖
 });
 
-// 加载更多图片
+// 加载更多图片（优化版）
 function loadMoreImages() {
+    if (isLoadingMore) return;
     isLoadingMore = true;
     
-    setTimeout(() => {
-        const container = currentPage === 'avatars-page' ? avatarsContainer : wallpapersContainer;
-        const isAvatar = currentPage === 'avatars-page';
-        const count = isAvatar ? 10 : 5;
-        
-        // 获取对应的自定义图片数组
-        const customImages = isAvatar ? CONFIG.customAvatars : CONFIG.customWallpapers;
-        const images = customImages.length > 0 ? customImages : [CONFIG.defaultImage];
-        
-        // 计算当前已加载的图片数量
-        const currentImageCount = container.querySelectorAll('.waterfall-item').length;
-        
-        // 计算从哪个索引开始加载新图片
-        const startIndex = currentImageCount;
-        
-        // 确保不超过图片数组长度
-        const maxImagesToLoad = Math.min(count, images.length - startIndex);
-        
-        for (let i = 0; i < maxImagesToLoad; i++) {
-            const imageUrl = images[startIndex + i]; // 加载新的图片，不重复
-            const imgItem = createImageItem(imageUrl, isAvatar);
-            container.appendChild(imgItem);
-        }
-        
-        initLazyLoad();
+    const container = currentPage === 'avatars-page' ? avatarsContainer : wallpapersContainer;
+    const isAvatar = currentPage === 'avatars-page';
+    
+    // 获取对应的图片数组（优先使用从文本文件加载的图片）
+    let images = [];
+    if (isAvatar) {
+        images = loadedAvatarImages.length > 0 ? loadedAvatarImages : 
+                 (CONFIG.customAvatars.length > 0 ? CONFIG.customAvatars : [CONFIG.defaultImage]);
+    } else {
+        images = loadedWallpaperImages.length > 0 ? loadedWallpaperImages : 
+                 (CONFIG.customWallpapers.length > 0 ? CONFIG.customWallpapers : [CONFIG.defaultImage]);
+    }
+    
+    // 计算当前已加载的图片数量
+    const currentImageCount = container.querySelectorAll('.waterfall-item').length;
+    
+    // 计算从哪个索引开始加载新图片
+    const startIndex = currentImageCount;
+    
+    // 确保不超过图片数组长度
+    const maxImagesToLoad = Math.min(CONFIG.loadMoreCount, images.length - startIndex);
+    
+    if (maxImagesToLoad <= 0) {
+        // 没有更多图片可加载
         isLoadingMore = false;
-    }, 500);
+        return;
+    }
+    
+    // 批量创建图片元素
+    const fragment = document.createDocumentFragment();
+    
+    for (let i = 0; i < maxImagesToLoad; i++) {
+        const imageUrl = images[startIndex + i]; // 加载新的图片，不重复
+        const imgItem = createImageItem(imageUrl, isAvatar);
+        fragment.appendChild(imgItem);
+    }
+    
+    // 一次性添加到容器中，减少DOM操作
+    container.appendChild(fragment);
+    
+    // 初始化懒加载
+    initLazyLoad();
+    
+    // 更新图片计数
+    updateImageCounts();
+    
+    isLoadingMore = false;
+    
+    console.log(`加载了 ${maxImagesToLoad} 张${isAvatar ? '头像' : '壁纸'}图片，当前总数: ${currentImageCount + maxImagesToLoad}`);
 }
 
 // 添加键盘导航支持
@@ -915,6 +899,7 @@ function showImageLightbox(imageUrl, isAvatar) {
     // 创建放大图片
     const enlargedImg = document.createElement('img');
     enlargedImg.src = imageUrl;
+    enlargedImg.referrerPolicy = 'no-referrer';
     enlargedImg.style.cssText = `
         max-width: 90vw;
         max-height: 90vh;
